@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit{
 	}
 
 	onSubmit(form){
+		debugger;
 		this._userService.register(this.user).subscribe(
 			response => {
 				if(response.user && response.user._id){
@@ -46,7 +47,7 @@ export class RegisterComponent implements OnInit{
 				}
 					
 			  },
-			 error => {
+			error => {
 					console.log(<any>error);
 			  }
 			);
