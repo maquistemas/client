@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+//import { HttpModule } from '@angular/http';//Forma antigua
+import { HttpClientModule } from '@angular/common/http'; //Nueva forma
 import { routing, appRoutingProviders } from './app.routing';
 
 //Componentes
@@ -17,8 +18,9 @@ import { RegisterComponent } from './components/register/register.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routing,
-    FormsModule
+    HttpClientModule
   ],
   providers: [
     appRoutingProviders
