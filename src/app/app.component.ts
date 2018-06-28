@@ -1,10 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [UserService]
 })
-export class AppComponent {
-  public title = 'NGSOcial';
+export class AppComponent  implements OnInit, DoCheck{
+  public title: string;
+  public identity;
+
+  constructor(
+  	private _userService: UserService
+  	){
+  		this.title  = 'NGSOcial';
+  }
+
+
+  ngOnInit(){
+  	this.identity = this._userService.getIdentity();
+  	
+  }
+
+
+  //Metodo que cada vez que haya un cambio actualiza la lógica
+  ngDoCheck(){
+    this.identity = this._userService.getIdentity();
+  }
+
+
 }

@@ -8,6 +8,10 @@
 	border-bottom: 1px solid #eee;
 }
 
+.active{
+	background: #cc1717 !important;
+}
+
 
 /*Cabecera*/
 .navigation {
@@ -24,3 +28,6 @@
 	color: white !important;
 }
 
+.navigation .navbar a:hover{
+	background: #cc1717 !important;
+}

@@ -37,12 +37,14 @@ export class LoginComponent implements OnInit{
 				this.identity = response.user;
 
 				console.log(this.identity);
-				
+
 				if(!this.identity || !this.identity._id){
 					this.status = 'error';
 				}else{
 					this.status = 'success';
 					//PERSISTIR DATOS DE USUARIO
+					localStorage.setItem('identity', JSON.stringify(this.identity));
+
 
 					//conseguir token
 					this.getToken();
@@ -73,6 +75,9 @@ export class LoginComponent implements OnInit{
 				}else{
 					this.status = 'success';
 					//PERSISTIR TOKEN DE USUARIO
+					localStorage.setItem('token', JSON.stringify(this.token));
+
+
 
 					//conseguir los contadores  o estadísticas de usuario
 				}
