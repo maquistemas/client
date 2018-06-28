@@ -80,6 +80,8 @@ export class LoginComponent implements OnInit{
 
 
 					//conseguir los contadores  o estadísticas de usuario
+
+					this._router.navigate(['/']);
 				}
 
 				

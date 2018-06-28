@@ -12,6 +12,9 @@
 	background: #cc1717 !important;
 }
 
+.pointer{
+	cursor: pointer;
+}
 
 /*Cabecera*/
 .navigation {
