@@ -14,12 +14,23 @@ export class UserService{
 		this.url = GLOBAL.url;
 	}
 
-
 	register(user: User): Observable<any>{
 		let params = JSON.stringify(user);
 		let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 		return this._http.post(this.url+'register', params, {headers:headers});
+	}
+
+	signup(user: User, gettoken = null): Observable<any>{
+		if(gettoken != null){
+			//Object.defineProperty(user,'gettoken',{value:gettoken}); 
+			user.gettoken = gettoken;
+		}
+				
+		let params = JSON.stringify(user);
+		let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+		return this._http.post(this.url+'login',params,{headers:headers});
 	}
 
 }

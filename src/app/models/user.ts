@@ -9,7 +9,7 @@ export class User{
 		public password:string,
 		public role:string,
 		public image:string,
-
+		public gettoken?:string
 
 	){}
 
