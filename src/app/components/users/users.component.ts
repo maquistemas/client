@@ -11,6 +11,7 @@ import { GLOBAL } from '../../services/global';
 	})
 export class UsersComponent implements OnInit{
 	public title: string;
+	public url: string;
 	public identity;
 	public token;
 	public page;
@@ -27,6 +28,7 @@ export class UsersComponent implements OnInit{
 		private _userService: UserService
 		){
 			this.title = 'Gente';
+			this.url = GLOBAL.url;
 			this.identity = this._userService.getIdentity();
 			this.token = this._userService.getToken();
 		}
@@ -39,15 +41,20 @@ export class UsersComponent implements OnInit{
 
 	actualPage(){
 		this._route.params.subscribe(params => {
-			let page = params['page'];
+			let page = +params['page'];
 			this.page = page;
+
+			if(!params['page']){
+				page = 1;
+			}
 
 			if(!page){
 				page = 1;
 			}else{
+				
 				this.next_page = page+1;
 				this.prev_page = page-1;
-
+			
 				if(this.prev_page <= 0){
 					this.prev_page = 1;
 				}
@@ -82,7 +89,7 @@ export class UsersComponent implements OnInit{
 					this.status = 'error';
 				}
 			}
-			)
+		)
 	}
 
 }
