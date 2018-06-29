@@ -10,7 +10,7 @@ export class UploadService{
 	}
 
 
-	makeFileRequest(url: sring, params: Array<sring>, files: Array<File>, token: string, name: string){
+	makeFileRequest(url: string, params: Array<string>, files: Array<File>, token: string, name: string){
 		return new Promise(function(resolve, reject){
 			var formData: any = new FormData();
 			var xhr = new XMLHttpRequest();
