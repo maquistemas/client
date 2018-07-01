@@ -183,3 +183,8 @@
 #user-card .following-data:last-child{
 	border: none;
 }
+
+/**TIMELINE*/
+#publications{
+	min-height: 500px;
+}
