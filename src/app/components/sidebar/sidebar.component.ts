@@ -35,13 +35,18 @@ export class SidebarComponent implements OnInit{
 	onSubmit(form){
 		this._publicationService.addPublication(this.token, this.publication).subscribe(
 			response => {
-				if(response.publication){
-					//this.publication = response.publication;
-					this.status = 'success';
-					form.reset();
-				}else{
-					this.status = 'error';
-				}
+					
+					let responseString = JSON.stringify(response);
+					let responseJson = JSON.parse(responseString);
+					
+					//if(response.publication){
+					if(responseJson.publication){
+						//this.publication = response.publication;
+						this.status = 'success';
+						form.reset();
+					}else{
+						this.status = 'error';
+					}
 				},
 				error => {
 					var errorMessage = <any>error;
