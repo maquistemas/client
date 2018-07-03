@@ -191,3 +191,7 @@
 #publications{
 	min-height: 500px;
 }
+
+#publications .date{
+	color: gray;
+}
