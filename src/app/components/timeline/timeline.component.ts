@@ -4,7 +4,7 @@ import { Publication } from '../../models/publication';
 import { GLOBAL } from '../../services/global';
 import { UserService } from '../../services/user.service';
 import { PublicationService } from '../../services/publication.service';
-
+import * as $ from 'jquery';
 
 @Component({
 	selector: 'timeline',
