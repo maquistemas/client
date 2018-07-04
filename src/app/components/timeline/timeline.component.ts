@@ -88,17 +88,7 @@ export class TimelineComponent implements OnInit{
 			);
 	}
 
-	/*public noMore = false;
-	viewMore(){
-		if(this.publications.length == (this.total-this.itemsPerPage)){
-			this.noMore = true;
-		}else{
-			this.page += 1;
-		}
-
-		this.getPublications(this.page, true);
-	}*/
-
+	
 	public noMore = false;
 	viewMore(){
 	 	 this.page += 1;
