@@ -14,9 +14,9 @@
 						</a>
 					</div>
 					<div>
-						<span class="user-name">
+						<a [routerLink]="['/perfil',publication.user._id]" class="user-name">
 							{{publication.user.name + ' '+ publication.user.surname }}
-						</span>
+						</a>
 						&nbsp;|&nbsp;
 						<span class="date">
 							{{ (publication.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo }}
