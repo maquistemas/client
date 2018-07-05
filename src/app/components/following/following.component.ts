@@ -69,7 +69,8 @@ export class FollowingComponent implements OnInit{
 			}
 
 			//devolver listado de usuarios
-			this.getFollows(user_id, page);
+			this.getUser(user_id, page);
+			
 		});
 	}
 
@@ -103,6 +104,29 @@ export class FollowingComponent implements OnInit{
 				}
 			}
 		)
+	}
+
+	public user: User;
+	getUser(user_id, page){
+		this._userService.getUser(user_id).subscribe(
+			response => {
+				if(response.user){
+					this.user = response.user;
+					this.getFollows(user_id, page);
+				}else{
+					this._router.navigate(['/home']);
+				}
+				},
+			error => {
+				var errorMessage = <any>error;
+				console.log(errorMessage);
+
+				if(errorMessage != null){
+					this.status = 'error';
+				}
+
+			}
+		);
 	}
 
 
