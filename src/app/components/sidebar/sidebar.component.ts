@@ -4,11 +4,12 @@ import { UserService } from '../../services/user.service';
 import { GLOBAL } from '../../services/global';
 import { Publication } from '../../models/publication';
 import { PublicationService } from '../../services/publication.service';
+import { UploadService } from '../../services/upload.service';
 
 @Component({
 	selector: 'sidebar',
 	templateUrl: './sidebar.component.html',
-	providers: [UserService, PublicationService]
+	providers: [UserService, PublicationService, UploadService]
 	})
 export class SidebarComponent implements OnInit{
 	public identity;
@@ -22,6 +23,7 @@ export class SidebarComponent implements OnInit{
 	constructor(
 		private _userService: UserService,
 		private _publicationService: PublicationService,
+		private _uploadService: UploadService,
 		private _route: ActivatedRoute,
 		private _router: Router
 		){
@@ -46,9 +48,19 @@ export class SidebarComponent implements OnInit{
 					//if(response.publication){
 					if(responseJson.publication){
 						//this.publication = response.publication;
-						this.status = 'success';
-						form.reset();
-						this._router.navigate(['/timeline']);
+						
+
+						//Subir Imagen
+						//this._uploadService.makeFileRequest(this.url+'upload-image-pub/'+response.publication._id, [], this.filesToUpload, this.token, 'file')
+						this._uploadService.makeFileRequest(this.url+'upload-image-pub/'+responseJson.publication._id, [], this.filesToUpload, this.token, 'image')
+										   .then((result:any) => {
+										   		this.publication.file = result.image;
+
+										   		this.status = 'success';
+												form.reset();
+												this._router.navigate(['/timeline']);
+										   	});
+
 					}else{
 						this.status = 'error';
 					}
@@ -60,6 +72,12 @@ export class SidebarComponent implements OnInit{
 					}
 				}
 			);
+	}
+
+
+	public filesToUpload: Array<File>;
+	fileChangeEvent(fileInput: any){
+		this.filesToUpload = <Array<File>>fileInput.target.files;
 	}
 
 
