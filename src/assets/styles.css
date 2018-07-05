@@ -68,6 +68,10 @@
 }
 
 /*GENTE*/
+.people {
+	min-height: 500px;
+}
+
 .item-user .image-user, 
 .item-publication .image-user{
 	width: 75px;
@@ -103,6 +107,11 @@
 /*.avatar-default{
 	width: 100% !important;
 }*/
+
+/*Mis Datos*/
+.user-edit img{
+	width: 300px;
+}
 
 /*SIDEBAR*/
 .sidebar-32{
