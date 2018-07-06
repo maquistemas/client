@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http'; //Nueva forma
 import { routing, appRoutingProviders } from './app.routing';
 import { MomentModule } from 'angular2-moment';
 
+//Modulo Custom de messages
+import { MessagesModule } from './messages/messages.module';
+
 //Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -40,7 +43,8 @@ import { FollowedComponent } from './components/followed/followed.component';
     FormsModule,
     routing,
     HttpClientModule,
-    MomentModule
+    MomentModule,
+    MessagesModule
   ],
   providers: [
     appRoutingProviders

@@ -16,3 +16,5 @@ export class SendedComponent implements OnInit{
 	ngOnInit(){
 		console.log('sended.component cargado');
 	}
+
+}
