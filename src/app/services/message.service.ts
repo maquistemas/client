@@ -18,7 +18,7 @@ export class MessageService{
 		let headers = new HttpHeaders().set('Content-Type', 'application/json')
 										.set('Authorization', token);
 
-		return this._http.post(this.ur+'message', params, {headers: headers}); 
+		return this._http.post(this.url+'message', params, {headers: headers}); 
 	}
 
 	getMyMessages(token, page = 1){
@@ -36,9 +36,6 @@ export class MessageService{
 	 	return this._http.get(this.url+'messages/'+page, {headers: headers});
 
 	}
-
-
-
 
 
 }
